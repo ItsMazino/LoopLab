@@ -2,6 +2,8 @@
 
 A pocket rhythm machine built entirely in the browser. LoopLab combines a six-voice drum synthesizer, a sixteen-step sequencer, a live transport, and local WAV rendering in a compact instrument-inspired interface.
 
+**Live demo:** [Try LoopLab](https://loop-lab-seven.vercel.app)
+
 **Repository:** [ItsMazino/LoopLab](https://github.com/ItsMazino/LoopLab)
 
 ## Table of Contents
