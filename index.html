@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#171916" />
+    <meta
+      name="description"
+      content="A pocket drum machine. Make a sixteen-step beat, shape the groove, and export it as audio. No samples or sign-up required."
+    />
+    <title>LoopLab — Pocket rhythm machine</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23171916'/%3E%3Cpath d='M8 28V12h6v16zm9 0V8h6v20zm9 0V17h6v11z' fill='%23c6ed72'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#machine">Skip to sequencer</a>
+    <header>
+      <a class="brand" href="./"
+        ><span aria-hidden="true">▥</span> LOOPLAB<span class="brand-version"
+          >/ 01</span
+        ></a
+      ><span class="header-note">SMALL MACHINE. ENDLESS POSSIBILITIES.</span
+      ><span class="online"><i></i> BROWSER SYNTH</span>
+    </header>
+    <main>
+      <section class="intro">
+        <div>
+          <p class="eyebrow">THE POCKET RHYTHM MACHINE</p>
+          <h1>Find your <em>pocket.</em></h1>
+          <p>Six voices. Sixteen steps. A beat that's all yours.</p>
+        </div>
+        <div class="edition">
+          <span>LL–016</span
+          ><span>RHYTHM COMPOSER<br />EST. IN YOUR BROWSER</span>
+        </div>
+      </section>
+      <section id="machine" class="machine" aria-label="Drum machine">
+        <div class="machine-top">
+          <div class="session-label">
+            <span class="led"></span><span id="pattern-name">DUSTY POCKET</span
+            ><span class="session-type">/ PATTERN 01</span>
+          </div>
+          <div class="machine-tools">
+            <button id="undo" disabled>↶ Undo</button
+            ><button id="clear">Clear pattern</button>
+          </div>
+        </div>
+        <div class="transport">
+          <button id="play" aria-pressed="false">
+            <span class="play-icon">▶</span
+            ><span id="play-label">Play beat</span>
+          </button>
+          <div class="tempo">
+            <label for="bpm">TEMPO</label>
+            <div>
+              <input
+                id="bpm"
+                type="number"
+                min="50"
+                max="200"
+                value="92"
+                inputmode="numeric"
+              /><span>BPM</span>
+            </div>
+          </div>
+          <label class="slider-control"
+            >SWING <output id="swing-value">12%</output
+            ><input
+              id="swing"
+              aria-label="Swing"
+              type="range"
+              min="0"
+              max="60"
+              value="12" /></label
+          ><label class="slider-control volume"
+            >MASTER <output id="volume-value">70%</output
+            ><input
+              id="volume"
+              aria-label="Master volume"
+              type="range"
+              min="0"
+              max="100"
+              value="70"
+          /></label>
+          <div class="beat-display">
+            <span>POSITION</span
+            ><strong id="position">01<span> / 16</span></strong>
+            <div id="beat-lights" aria-hidden="true">
+              <i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+        </div>
+        <p class="scroll-hint">Swipe the grid to explore all 16 steps →</p>
+        <div
+          class="grid-scroll"
+          tabindex="0"
+          role="region"
+          aria-label="Sixteen step grid; scroll horizontally on small screens"
+        >
+          <div class="sequencer">
+            <div class="step-header">
+              <span>VOICE / MUTE</span>
+              <div id="step-numbers"></div>
+            </div>
+            <div id="tracks"></div>
+            <div class="beat-labels">
+              <span></span>
+              <div>
+                <span>01 — THE ONE</span><span>02</span><span>03</span
+                ><span>04</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="machine-bottom">
+          <span><i class="legend-dot"></i> TAP A PAD TO PLACE A HIT</span
+          ><span>4/4 TIME <b>·</b> 1/16 RESOLUTION</span>
+        </div>
+      </section>
+      <section class="bottom-section">
+        <div class="starter-section">
+          <div class="section-heading">
+            <h2>A little inspiration</h2>
+            <span>START SOMEWHERE. GO ANYWHERE.</span>
+          </div>
+          <div id="presets" class="presets"></div>
+        </div>
+        <div class="save-section">
+          <div class="section-heading"><h2>Keep the good ones.</h2></div>
+          <p>Save this session, or take your loop with you.</p>
+          <div class="save-actions">
+            <button id="save">↓ Save session</button
+            ><button id="export">↗ Export WAV</button>
+          </div>
+          <button id="restore" class="restore" disabled>
+            Restore saved session
+          </button>
+        </div>
+      </section>
+      <footer>
+        <span>NO SAMPLES. JUST SYNTHESIS.</span
+        ><span
+          >Built for playing, not overthinking.
+          <span class="footer-symbol">✳</span></span
+        >
+      </footer>
+    </main>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
